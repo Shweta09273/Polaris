@@ -1,0 +1,14 @@
+{
+  "id": "ourairports.airports",
+  "displayName": "OurAirports",
+  "domains": ["airport"],
+  "license": "Public-Domain",
+  "attribution": "OurAirports.com",
+  "homepage": "https://ourairports.com/data/",
+  "accessMode": "bulk_download",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "frequent CSV refreshes",
+  "notes": "CSV → GeoJSON normalization in connector.",
+  "status": "contract_ready"
+}

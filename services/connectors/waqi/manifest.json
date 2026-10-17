@@ -1,0 +1,14 @@
+{
+  "id": "waqi.stations",
+  "displayName": "World Air Quality Index (WAQI)",
+  "domains": ["aqi_station"],
+  "license": "Proprietary-Partner",
+  "attribution": "World Air Quality Index Project",
+  "homepage": "https://aqicn.org/api/",
+  "accessMode": "api",
+  "requiresCredentials": true,
+  "credentialEnvKeys": ["WAQI_API_TOKEN"],
+  "updateCadence": "hourly",
+  "notes": "Token required. Comply with WAQI ToS. Complement, do not replace, Open-Meteo modelled AQI.",
+  "status": "contract_ready"
+}

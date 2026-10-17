@@ -1,0 +1,14 @@
+{
+  "id": "geoboundaries.admin",
+  "displayName": "geoBoundaries Administrative Boundaries",
+  "domains": ["admin_boundary"],
+  "license": "CC-BY-4.0",
+  "attribution": "geoBoundaries",
+  "homepage": "https://www.geoboundaries.org/",
+  "accessMode": "api",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "periodic releases",
+  "notes": "Preferred over GADM for commercial SaaS licensing.",
+  "status": "contract_ready"
+}

@@ -1,0 +1,53 @@
+node_modules
+.turbo
+dist
+*.tsbuildinfo
+build
+.next
+apps/web/public/cesium
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+.ruff_cache
+coverage
+*.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+
+# Never commit real geospatial payloads
+data/raw/**
+data/processed/**
+data/staging/**
+data/bootstrap/**
+data/packages/**
+data/registry/**
+data/runtime-cache/**
+data/twin3d/**
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/staging/.gitkeep
+!data/schemas/**
+!data/packages/.gitkeep
+!data/registry/.gitkeep
+!data/runtime-cache/.gitkeep
+!data/bootstrap/.gitkeep
+!data/twin3d/.gitkeep
+
+# IDE
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Docker volumes markers
+infrastructure/docker/volumes/
+
+# OS / secrets
+*.pem
+*.key
+secrets/

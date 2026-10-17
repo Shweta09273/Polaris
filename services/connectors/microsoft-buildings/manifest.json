@@ -1,0 +1,14 @@
+{
+  "id": "microsoft.buildings",
+  "displayName": "Microsoft Global ML Building Footprints",
+  "domains": ["building"],
+  "license": "CDLA-Permissive-2.0",
+  "attribution": "Microsoft",
+  "homepage": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+  "accessMode": "bulk_download",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "periodic releases",
+  "notes": "Prefer Overture conflated buildings when possible; Microsoft useful as fill-in under CDLA.",
+  "status": "contract_ready"
+}

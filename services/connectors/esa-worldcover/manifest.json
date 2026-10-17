@@ -1,0 +1,14 @@
+{
+  "id": "esa.worldcover",
+  "displayName": "ESA WorldCover",
+  "domains": ["land_use_cell"],
+  "license": "CC-BY-4.0",
+  "attribution": "© ESA WorldCover project",
+  "homepage": "https://esa-worldcover.org/",
+  "accessMode": "s3",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "annual products",
+  "notes": "10 m land cover COGs on AWS Open Data.",
+  "status": "contract_ready"
+}

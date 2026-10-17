@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polaris.local/schemas/provenance.schema.json",
+  "title": "POLARIS Dataset Provenance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sourceId",
+    "sourceName",
+    "license",
+    "attribution",
+    "accessMode",
+    "retrievedAt"
+  ],
+  "properties": {
+    "sourceId": { "type": "string", "minLength": 1 },
+    "sourceName": { "type": "string", "minLength": 1 },
+    "license": {
+      "type": "string",
+      "enum": [
+        "ODbL-1.0",
+        "CC-BY-4.0",
+        "CDLA-Permissive-2.0",
+        "Apache-2.0",
+        "Copernicus",
+        "Public-Domain",
+        "Proprietary-Partner",
+        "Unknown-Needs-Review"
+      ]
+    },
+    "attribution": { "type": "string", "minLength": 1 },
+    "accessMode": {
+      "type": "string",
+      "enum": ["api", "bulk_download", "stac", "s3", "manual", "partner"]
+    },
+    "retrievedAt": { "type": "string", "format": "date-time" },
+    "sourceVersion": { "type": "string" },
+    "sourceUrl": { "type": "string", "format": "uri" }
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "cityQuery": "Vatican City",
+  "cityDisplayName": "Civitas Vaticana - Città del Vaticano",
+  "aoiId": "01KY4TAN3GYCQ60QNP4CW9XKTJ",
+  "startedAt": "2026-07-22T11:45:41.488Z",
+  "finishedAt": "2026-07-22T11:45:48.306Z",
+  "durationMs": 6818,
+  "datasetsUsed": [
+    {
+      "key": "admin_boundary",
+      "displayName": "City / admin boundary",
+      "required": true,
+      "status": "present",
+      "connectorIds": [
+        "nominatim",
+        "geoboundaries",
+        "osm"
+      ],
+      "entityCount": 2,
+      "confidence": 0.7,
+      "notes": [
+        "Skipped by operator flag",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "admin_zones",
+      "displayName": "Administrative zones (ADM2+)",
+      "required": false,
+      "status": "present",
+      "connectorIds": [
+        "geoboundaries"
+      ],
+      "entityCount": 1,
+      "confidence": 0.7,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "airport",
+      "displayName": "Airports",
+      "required": false,
+      "status": "present",
+      "connectorIds": [
+        "ourairports",
+        "osm"
+      ],
+      "entityCount": 1,
+      "confidence": 0.7,
+      "license": "Public-Domain",
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "weather",
+      "displayName": "Weather forecast / current",
+      "required": true,
+      "status": "partial",
+      "connectorIds": [
+        "open-meteo"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "license": "CC-BY-4.0",
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ]
+    },
+    {
+      "key": "flood_zones",
+      "displayName": "Flood zones / discharge",
+      "required": false,
+      "status": "partial",
+      "connectorIds": [
+        "open-meteo"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "license": "CC-BY-4.0",
+      "notes": [
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ]
+    },
+    {
+      "key": "historical_rainfall",
+      "displayName": "Historical rainfall",
+      "required": true,
+      "status": "partial",
+      "connectorIds": [
+        "open-meteo"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "license": "CC-BY-4.0",
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ]
+    },
+    {
+      "key": "aqi",
+      "displayName": "Air quality",
+      "required": false,
+      "status": "partial",
+      "connectorIds": [
+        "open-meteo",
+        "waqi"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "license": "CC-BY-4.0",
+      "notes": [
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ]
+    }
+  ],
+  "missingData": [
+    {
+      "key": "roads",
+      "displayName": "Road network",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "buildings",
+      "displayName": "Building footprints",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "osm",
+        "overture"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "land_use",
+      "displayName": "Land use / zoning",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "land_cover",
+      "displayName": "Land cover raster",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "esa-worldcover"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "hospitals",
+      "displayName": "Hospitals",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "schools",
+      "displayName": "Schools",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "police",
+      "displayName": "Police stations",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "fire",
+      "displayName": "Fire stations",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "water_bodies",
+      "displayName": "Water bodies & waterways",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "drainage",
+      "displayName": "Drainage / hydro network",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "osm",
+        "hydrosheds"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "elevation",
+      "displayName": "Elevation DEM",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "copernicus"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "population",
+      "displayName": "Population surface",
+      "required": true,
+      "status": "missing",
+      "connectorIds": [
+        "worldpop"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "metro",
+      "displayName": "Metro / rapid transit",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "osm",
+        "gtfs"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag",
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "railway",
+      "displayName": "Railway network",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "osm"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "weather",
+      "displayName": "Weather forecast / current",
+      "required": true,
+      "status": "partial",
+      "connectorIds": [
+        "open-meteo"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "license": "CC-BY-4.0",
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ]
+    },
+    {
+      "key": "satellite_imagery",
+      "displayName": "Satellite imagery (Sentinel-2)",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "sentinel"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "historical_rainfall",
+      "displayName": "Historical rainfall",
+      "required": true,
+      "status": "partial",
+      "connectorIds": [
+        "open-meteo"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "license": "CC-BY-4.0",
+      "notes": [
+        "Required layer missing or empty after connectors.",
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ]
+    },
+    {
+      "key": "historical_flood_events",
+      "displayName": "Historical flood / disaster events",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "gdacs"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "gtfs_transit",
+      "displayName": "GTFS transit feeds",
+      "required": false,
+      "status": "missing",
+      "connectorIds": [
+        "gtfs"
+      ],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": [
+        "Skipped by operator flag"
+      ]
+    },
+    {
+      "key": "open_government_data",
+      "displayName": "Government open data portal",
+      "required": false,
+      "status": "planned",
+      "connectorIds": [],
+      "entityCount": 0,
+      "confidence": null,
+      "notes": []
+    }
+  ],
+  "connectorResults": [
+    {
+      "connectorId": "geoboundaries",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "osm",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "ourairports",
+      "status": "success",
+      "entityCount": 1,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "connectorId": "open-meteo",
+      "status": "success",
+      "entityCount": 4,
+      "warnings": [
+        "OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+        "Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+      ],
+      "errors": []
+    },
+    {
+      "connectorId": "gdacs",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "copernicus",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "worldpop",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "esa-worldcover",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "gtfs",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "overture",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    },
+    {
+      "connectorId": "sentinel",
+      "status": "unavailable",
+      "warnings": [],
+      "errors": [],
+      "missingReason": "Skipped by operator flag"
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "qualityScore": 100,
+    "issues": [],
+    "duplicateExternalIds": 0,
+    "invalidGeometries": 0,
+    "missingMetadata": 0
+  },
+  "cityDna": {
+    "cityName": "Civitas Vaticana - Città del Vaticano",
+    "aoiId": "01KY4TAN3GYCQ60QNP4CW9XKTJ",
+    "areaKm2": 0.491,
+    "populationDensity": null,
+    "roadDensityKmPerKm2": 0,
+    "hospitalDensityPer100k": null,
+    "schoolCount": 0,
+    "greenCoverRatio": null,
+    "waterCoverageRatio": 0,
+    "infrastructureScore": 13,
+    "floodRisk": null,
+    "heatRisk": null,
+    "mobilityScore": 15,
+    "connectivityScore": 0,
+    "utilityCoverage": null,
+    "urbanComplexityIndex": 18,
+    "notes": [
+      "Green cover not computed — requires land cover raster or landuse vegetation polygons.",
+      "Population density null — WorldPop raster not ingested (not fabricated).",
+      "Hospital density per 100k requires population denominator — unavailable without population layer.",
+      "Flood discharge series present; quantitative flood risk requires DEM inundation (not run in M2).",
+      "Heat risk index deferred to climate analytics (Milestone 4+); weather artifacts retained.",
+      "Utility coverage null — no global public utility network (partner port only)."
+    ]
+  },
+  "coverage": {
+    "requiredPresent": 1,
+    "requiredTotal": 11,
+    "optionalPresent": 2,
+    "optionalTotal": 14
+  },
+  "licensing": [
+    "Public-Domain",
+    "CC-BY-4.0"
+  ],
+  "warnings": [
+    "[open-meteo] OPEN_METEO_API_KEY unset — using free public endpoint (non-commercial ToS; rate limited).",
+    "[open-meteo] Open-Meteo Flood provides river discharge (GloFAS), not regulatory floodplain polygons."
+  ],
+  "errors": [],
+  "storage": {
+    "filesystem": "D:\\PROJECTS----WEBSITES\\HACKTHON-PROJECT\\POLORIS-3RD YEAR PROJECT\\services\\bootstrap\\data\\bootstrap\\vatican-city-01KY4TAN",
+    "postgis": "skipped",
+    "neo4j": "skipped",
+    "timescale": "skipped",
+    "minio": "skipped",
+    "opensearch": "skipped"
+  },
+  "cityReadinessScore": 31,
+  "twinReadinessScore": 0
+}

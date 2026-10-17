@@ -1,0 +1,18 @@
+{
+  "id": "osm.core",
+  "displayName": "OpenStreetMap Core Extract",
+  "domains": ["road", "hospital", "school", "police_station", "fire_station", "railway", "waterway", "building"],
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "homepage": "https://www.openstreetmap.org/copyright",
+  "accessMode": "bulk_download",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "daily extracts / minutely diffs",
+  "notes": "Production must use Geofabrik/osmium mirrors; do not bulk-scrape public Overpass.",
+  "endpoints": {
+    "overpass": "https://overpass-api.de/api/interpreter",
+    "geofabrik": "https://download.geofabrik.de/"
+  },
+  "status": "contract_ready"
+}

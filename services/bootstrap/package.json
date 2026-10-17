@@ -1,0 +1,39 @@
+{
+  "name": "@polaris/bootstrap",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "polaris-bootstrap": "./dist/cli-entry.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test src/**/*.test.ts",
+    "lint": "echo ok",
+    "clean": "rimraf dist",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@polaris/connector-sdk": "workspace:*",
+    "@polaris/domain": "workspace:*",
+    "@polaris/ontology": "workspace:*",
+    "@polaris/spatial": "workspace:*",
+    "@turf/turf": "^7.2.0",
+    "@types/geojson": "^7946.0.16",
+    "ulid": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

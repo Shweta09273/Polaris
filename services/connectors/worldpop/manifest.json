@@ -1,0 +1,14 @@
+{
+  "id": "worldpop.population",
+  "displayName": "WorldPop Population",
+  "domains": ["population_cell"],
+  "license": "CC-BY-4.0",
+  "attribution": "WorldPop",
+  "homepage": "https://www.worldpop.org/",
+  "accessMode": "bulk_download",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "annual / multi-year products",
+  "notes": "Gridded population GeoTIFF; prefer constrained products where available.",
+  "status": "contract_ready"
+}

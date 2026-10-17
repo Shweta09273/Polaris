@@ -1,0 +1,16 @@
+{
+  "filesystem": "written",
+  "postgis": "skipped",
+  "neo4j": "skipped",
+  "timescale": "skipped",
+  "minio": "skipped",
+  "opensearch": "skipped",
+  "details": [
+    "Filesystem twin written under D:\\PROJECTS----WEBSITES\\HACKTHON-PROJECT\\POLORIS-3RD YEAR PROJECT\\services\\bootstrap\\data\\bootstrap\\vatican-city-01KY4TAN\\twin",
+    "PostGIS skipped — DATABASE_URL/POSTGIS_URL unset",
+    "Neo4j skipped — NEO4J_URI unset",
+    "Timescale skipped — TIMESCALE_URL unset; weather/AQ JSON retained in raw/",
+    "MinIO/S3 skipped — endpoint unset",
+    "OpenSearch skipped — OPENSEARCH_URL unset"
+  ]
+}

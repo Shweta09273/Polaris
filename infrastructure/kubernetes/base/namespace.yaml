@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: polaris
+  labels:
+    app.kubernetes.io/part-of: polaris
+---
+# Milestone 1: namespace placeholder.
+# Deployable workloads (api, web, workers) land with Helm charts in Milestone 2+.

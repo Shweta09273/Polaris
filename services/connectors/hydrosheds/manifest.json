@@ -1,0 +1,14 @@
+{
+  "id": "hydrosheds.rivers",
+  "displayName": "HydroSHEDS / HydroRIVERS",
+  "domains": ["drainage", "waterway"],
+  "license": "Unknown-Needs-Review",
+  "attribution": "HydroSHEDS",
+  "homepage": "https://www.hydrosheds.org/",
+  "accessMode": "bulk_download",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "static releases",
+  "notes": "Verify commercial terms before redistribution. Urban storm drains remain a gap.",
+  "status": "contract_ready"
+}

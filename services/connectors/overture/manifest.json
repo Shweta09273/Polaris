@@ -1,0 +1,14 @@
+{
+  "id": "overture.buildings",
+  "displayName": "Overture Maps Buildings",
+  "domains": ["building"],
+  "license": "ODbL-1.0",
+  "attribution": "Overture Maps Foundation — see release attribution (OSM, Esri, Microsoft, Google Open Buildings)",
+  "homepage": "https://docs.overturemaps.org/guides/buildings/",
+  "accessMode": "s3",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "monthly releases",
+  "notes": "Query GeoParquet by AOI bbox; conflation already applied upstream.",
+  "status": "contract_ready"
+}

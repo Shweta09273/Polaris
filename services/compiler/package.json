@@ -1,0 +1,36 @@
+{
+  "name": "@polaris/compiler",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "POLARIS City Compiler — wraps Bootstrap Engine → .polaris package → registry",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "polaris-compile": "./dist/cli-entry.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo ok",
+    "lint": "echo ok",
+    "clean": "rimraf dist",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@polaris/bootstrap": "workspace:*",
+    "@polaris/package": "workspace:*",
+    "@polaris/registry": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

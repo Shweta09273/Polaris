@@ -1,0 +1,26 @@
+{
+  "cityName": "Civitas Vaticana - Città del Vaticano",
+  "aoiId": "01KY4TAN3GYCQ60QNP4CW9XKTJ",
+  "areaKm2": 0.491,
+  "populationDensity": null,
+  "roadDensityKmPerKm2": 0,
+  "hospitalDensityPer100k": null,
+  "schoolCount": 0,
+  "greenCoverRatio": null,
+  "waterCoverageRatio": 0,
+  "infrastructureScore": 13,
+  "floodRisk": null,
+  "heatRisk": null,
+  "mobilityScore": 15,
+  "connectivityScore": 0,
+  "utilityCoverage": null,
+  "urbanComplexityIndex": 18,
+  "notes": [
+    "Green cover not computed — requires land cover raster or landuse vegetation polygons.",
+    "Population density null — WorldPop raster not ingested (not fabricated).",
+    "Hospital density per 100k requires population denominator — unavailable without population layer.",
+    "Flood discharge series present; quantitative flood risk requires DEM inundation (not run in M2).",
+    "Heat risk index deferred to climate analytics (Milestone 4+); weather artifacts retained.",
+    "Utility coverage null — no global public utility network (partner port only)."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "sentinel.s2",
+  "displayName": "Sentinel-2 L2A Imagery",
+  "domains": ["imagery_scene"],
+  "license": "Copernicus",
+  "attribution": "Contains modified Copernicus Sentinel data",
+  "homepage": "https://dataspace.copernicus.eu/",
+  "accessMode": "stac",
+  "requiresCredentials": true,
+  "credentialEnvKeys": ["COPERNICUS_USERNAME", "COPERNICUS_PASSWORD"],
+  "updateCadence": "~5-day revisit",
+  "notes": "Production volume should use CDSE account; cloud-optimized STAC preferred.",
+  "status": "contract_ready"
+}

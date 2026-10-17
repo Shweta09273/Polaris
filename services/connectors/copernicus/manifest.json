@@ -1,0 +1,14 @@
+{
+  "id": "copernicus.dem",
+  "displayName": "Copernicus DEM GLO-30",
+  "domains": ["elevation_tile"],
+  "license": "Copernicus",
+  "attribution": "Copernicus DEM — European Space Agency / Copernicus Programme",
+  "homepage": "https://registry.opendata.aws/copernicus-dem/",
+  "accessMode": "s3",
+  "requiresCredentials": false,
+  "credentialEnvKeys": ["COPERNICUS_S3_ACCESS_KEY", "COPERNICUS_S3_SECRET_KEY"],
+  "updateCadence": "release-based",
+  "notes": "Public AWS bucket s3://copernicus-dem-30m/ for many tiles. DSM includes surface features — not bare-earth DTM.",
+  "status": "contract_ready"
+}

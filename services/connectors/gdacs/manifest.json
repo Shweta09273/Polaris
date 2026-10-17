@@ -1,0 +1,14 @@
+{
+  "id": "gdacs.disasters",
+  "displayName": "GDACS Disaster Alerts",
+  "domains": ["disaster_event"],
+  "license": "Unknown-Needs-Review",
+  "attribution": "GDACS",
+  "homepage": "https://www.gdacs.org/",
+  "accessMode": "api",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "near-real-time",
+  "notes": "Alert feed — not a complete historical disaster encyclopedia. EM-DAT is separate and restricted.",
+  "status": "contract_ready"
+}

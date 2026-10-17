@@ -1,0 +1,14 @@
+{
+  "id": "gtfs.mobility",
+  "displayName": "GTFS via Mobility Database",
+  "domains": ["metro_line", "transit_stop"],
+  "license": "Unknown-Needs-Review",
+  "attribution": "Per-agency GTFS license",
+  "homepage": "https://mobilitydatabase.org/",
+  "accessMode": "api",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "agency-dependent",
+  "notes": "Not globally available. License must be recorded per feed before publish.",
+  "status": "contract_ready"
+}

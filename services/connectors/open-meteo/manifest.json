@@ -1,0 +1,20 @@
+{
+  "id": "open-meteo.weather",
+  "displayName": "Open-Meteo Weather / Archive / Flood / Air Quality",
+  "domains": ["weather_station", "aqi_station"],
+  "license": "CC-BY-4.0",
+  "attribution": "Weather data by Open-Meteo.com (CC BY 4.0)",
+  "homepage": "https://open-meteo.com/",
+  "accessMode": "api",
+  "requiresCredentials": true,
+  "credentialEnvKeys": ["OPEN_METEO_API_KEY"],
+  "updateCadence": "hourly",
+  "notes": "Free tier is non-commercial. Commercial SaaS requires paid plan + API key.",
+  "endpoints": {
+    "forecast": "https://api.open-meteo.com/v1/forecast",
+    "archive": "https://archive-api.open-meteo.com/v1/archive",
+    "flood": "https://flood-api.open-meteo.com/v1/flood",
+    "airQuality": "https://air-quality-api.open-meteo.com/v1/air-quality"
+  },
+  "status": "contract_ready"
+}

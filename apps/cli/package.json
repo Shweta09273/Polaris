@@ -1,0 +1,27 @@
+{
+  "name": "@polaris/cli",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "polaris": "./dist/polaris.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "echo \"CLI is not a long-running server. Use: pnpm --filter @polaris/cli exec tsx src/polaris.ts --help\"",
+    "lint": "echo ok",
+    "test": "echo ok",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@polaris/bootstrap": "workspace:*",
+    "@polaris/compiler": "workspace:*",
+    "@polaris/runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

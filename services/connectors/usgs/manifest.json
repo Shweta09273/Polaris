@@ -1,0 +1,14 @@
+{
+  "id": "usgs.hydro-us",
+  "displayName": "USGS Hydrography (US-only)",
+  "domains": ["drainage", "waterway"],
+  "license": "Public-Domain",
+  "attribution": "U.S. Geological Survey",
+  "homepage": "https://www.usgs.gov/national-hydrography",
+  "accessMode": "bulk_download",
+  "requiresCredentials": false,
+  "credentialEnvKeys": [],
+  "updateCadence": "national program cadence",
+  "notes": "Jurisdiction-specific. Activate only for US AOIs. Prefer 3DHP where applicable.",
+  "status": "contract_ready"
+}

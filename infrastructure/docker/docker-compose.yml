@@ -1,0 +1,225 @@
+name: polaris
+
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    container_name: polaris-postgis
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGIS_USER:-polaris}
+      POSTGRES_PASSWORD: ${POSTGIS_PASSWORD:-polaris_dev_change_me}
+      POSTGRES_DB: ${POSTGIS_DB:-polaris_spatial}
+    ports:
+      - "${POSTGIS_PORT:-5432}:5432"
+    volumes:
+      - polaris_postgis:/var/lib/postgresql/data
+      - ./init/postgis:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGIS_USER:-polaris} -d ${POSTGIS_DB:-polaris_spatial}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    logging: *default-logging
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: polaris-timescaledb
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${TIMESCALE_USER:-polaris}
+      POSTGRES_PASSWORD: ${TIMESCALE_PASSWORD:-polaris_dev_change_me}
+      POSTGRES_DB: ${TIMESCALE_DB:-polaris_ts}
+    ports:
+      - "${TIMESCALE_PORT:-5433}:5432"
+    volumes:
+      - polaris_timescale:/var/lib/postgresql/data
+      - ./init/timescale:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${TIMESCALE_USER:-polaris} -d ${TIMESCALE_DB:-polaris_ts}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    logging: *default-logging
+
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: polaris-neo4j
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: ${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-polaris_dev_change_me}
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1G
+    ports:
+      - "${NEO4J_HTTP_PORT:-7474}:7474"
+      - "${NEO4J_BOLT_PORT:-7687}:7687"
+    volumes:
+      - polaris_neo4j:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    logging: *default-logging
+
+  redis:
+    image: redis:7.4-alpine
+    container_name: polaris-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - polaris_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    logging: *default-logging
+
+  nats:
+    image: nats:2.10-alpine
+    container_name: polaris-nats
+    restart: unless-stopped
+    command: ["--jetstream", "--http_port", "8222", "-m", "8222"]
+    ports:
+      - "${NATS_PORT:-4222}:4222"
+      - "${NATS_MONITOR_PORT:-8222}:8222"
+    volumes:
+      - polaris_nats:/data
+    logging: *default-logging
+
+  minio:
+    image: minio/minio:RELEASE.2024-12-18T13-15-44Z
+    container_name: polaris-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-polarisminio}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-polaris_dev_change_me}
+    ports:
+      - "${MINIO_API_PORT:-9000}:9000"
+      - "${MINIO_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - polaris_minio_community:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    logging: *default-logging
+
+  minio-init:
+    image: quay.io/minio/aistor/mc:latest
+    container_name: polaris-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set polaris http://minio:9000 $${MINIO_ROOT_USER} $${MINIO_ROOT_PASSWORD};
+      mc mb -p polaris/raw || true;
+      mc mb -p polaris/staging || true;
+      mc mb -p polaris/processed || true;
+      mc mb -p polaris/imagery || true;
+      mc mb -p polaris/dem || true;
+      mc mb -p polaris/models || true;
+      mc mb -p polaris/exports || true;
+      mc mb -p polaris/audit || true;
+      exit 0;
+      "
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-polarisminio}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-polaris_dev_change_me}
+    logging: *default-logging
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    container_name: polaris-keycloak
+    restart: unless-stopped
+    command: ["start-dev", "--http-port=8080"]
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-polaris_dev_change_me}
+      KC_HEALTH_ENABLED: "true"
+    ports:
+      - "${KEYCLOAK_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8080"]
+      interval: 20s
+      timeout: 5s
+      retries: 15
+    logging: *default-logging
+
+  opensearch:
+    image: opensearchproject/opensearch:2.18.0
+    container_name: polaris-opensearch
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      plugins.security.disabled: "true"
+      OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m"
+      DISABLE_INSTALL_DEMO_CONFIG: "true"
+    ports:
+      - "${OPENSEARCH_PORT:-9200}:9200"
+    volumes:
+      - polaris_opensearch:/usr/share/opensearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      interval: 20s
+      timeout: 10s
+      retries: 15
+    logging: *default-logging
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    container_name: polaris-prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - polaris_prometheus:/prometheus
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    logging: *default-logging
+
+  grafana:
+    image: grafana/grafana:11.3.1
+    container_name: polaris-grafana
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: polaris_dev_change_me
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SERVER_HTTP_PORT: 3000
+    ports:
+      - "${GRAFANA_PORT:-3001}:3000"
+    volumes:
+      - polaris_grafana:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
+    logging: *default-logging
+
+volumes:
+  polaris_postgis:
+  polaris_timescale:
+  polaris_neo4j:
+  polaris_redis:
+  polaris_nats:
+  polaris_minio:
+  polaris_minio_community:
+  polaris_opensearch:
+  polaris_prometheus:
+  polaris_grafana:

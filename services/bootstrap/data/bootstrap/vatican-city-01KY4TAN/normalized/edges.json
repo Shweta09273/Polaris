@@ -1,0 +1,35 @@
+{
+  "count": 3,
+  "edges": [
+    {
+      "id": "01KY4TAVPYRQX8TW1YP8X7TGVQ",
+      "type": "LOCATED_IN",
+      "fromId": "01KY4TAVNGF8TARDJ878T18E61",
+      "toId": "01KY4TAN3GYCQ60QNP4CW9XKTJ",
+      "datasetVersionId": "01KY4TAVNDYVWQX85JCYZHXAH6",
+      "properties": {
+        "rule": "aoi_membership"
+      }
+    },
+    {
+      "id": "01KY4TAVPY8AEADK1F9YEAK0DF",
+      "type": "LOCATED_IN",
+      "fromId": "01KY4TAVNM089Z0S7D77EFHSSN",
+      "toId": "01KY4TAN3GYCQ60QNP4CW9XKTJ",
+      "datasetVersionId": "01KY4TAVNDYVWQX85JCYZHXAH6",
+      "properties": {
+        "rule": "aoi_membership"
+      }
+    },
+    {
+      "id": "01KY4TAVPY8FYKH91KY0CNDCD4",
+      "type": "LOCATED_IN",
+      "fromId": "01KY4TAVNM089Z0S7D77EFHSSN",
+      "toId": "01KY4TAVNGF8TARDJ878T18E61",
+      "datasetVersionId": "01KY4TAVNDYVWQX85JCYZHXAH6",
+      "properties": {
+        "rule": "point_in_admin"
+      }
+    }
+  ]
+}

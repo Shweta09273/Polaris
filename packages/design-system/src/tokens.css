@@ -1,0 +1,39 @@
+:root {
+  --polaris-bg-0: #07090d;
+  --polaris-bg-1: #0c1017;
+  --polaris-bg-2: #121821;
+  --polaris-bg-3: #1a2330;
+
+  --polaris-border-subtle: rgba(255, 255, 255, 0.06);
+  --polaris-border-strong: rgba(255, 255, 255, 0.12);
+
+  --polaris-text-primary: #e8eef7;
+  --polaris-text-secondary: #9aa8bc;
+  --polaris-text-tertiary: #6b7a8f;
+  --polaris-text-inverse: #0c1017;
+
+  --polaris-accent: #3de1ff;
+  --polaris-accent-muted: rgba(61, 225, 255, 0.14);
+  --polaris-accent-strong: #1ab8d4;
+
+  --polaris-ok: #3dd68c;
+  --polaris-warn: #f5c542;
+  --polaris-critical: #ff5c5c;
+  --polaris-info: #6ea8fe;
+
+  --polaris-layer-road: #8fa3b8;
+  --polaris-layer-building: #c4b59a;
+  --polaris-layer-hydro: #4f8fbb;
+  --polaris-layer-hazard: #e07a3d;
+  --polaris-layer-critical: #e8eef7;
+
+  --polaris-font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --polaris-font-mono: "IBM Plex Mono", "Consolas", monospace;
+
+  --polaris-radius-sm: 4px;
+  --polaris-radius-md: 8px;
+  --polaris-shadow-panel: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+  --polaris-glass-bg: rgba(12, 16, 23, 0.72);
+  --polaris-glass-blur: 12px;
+}
